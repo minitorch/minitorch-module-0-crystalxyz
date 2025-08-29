@@ -185,7 +185,7 @@ def log(x: float) -> float:
         float: log of x
 
     """
-    return log(x)
+    return math.log(x)
 
 
 def exp(x: float) -> float:
@@ -198,7 +198,7 @@ def exp(x: float) -> float:
         float: value of e^x
 
     """
-    return exp(x)
+    return math.exp(x)
 
 
 def inv(x: float) -> float:

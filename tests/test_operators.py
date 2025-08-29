@@ -4,8 +4,8 @@ import pytest
 from hypothesis import given
 from hypothesis.strategies import lists
 
-from minitorch import MathTest
 import minitorch
+from minitorch import MathTest
 from minitorch.operators import (
     add,
     addLists,
@@ -22,7 +22,7 @@ from minitorch.operators import (
     prod,
     relu,
     relu_back,
-    sigmoid,
+    sum,
 )
 
 from .strategies import assert_close, small_floats
@@ -169,7 +169,13 @@ def test_sum_distribute(ls1: List[float], ls2: List[float]) -> None:
     is the same as the sum of each element of `ls1` plus each element of `ls2`.
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+    sum1, sum2 = sum(ls1), sum(ls2)
+    expected = 0
+    for num in ls1:
+        expected += num
+    for num in ls2:
+        expected += num
+    assert_close(sum1 + sum2, expected)
 
 
 @pytest.mark.task0_3
